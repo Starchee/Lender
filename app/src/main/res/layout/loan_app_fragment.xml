@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top_app_bar_layout_loan_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/top_app_bar_loan_app"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="15dp"
+            app:menu="@menu/top_app_bar_menu" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="7dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_loan_app"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_app_bar_layout_loan_app">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_loan_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="5dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cardview_background_gradient">
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrier_loan_app"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:barrierDirection="right"
+                        app:constraint_referenced_ids="max_amount_title_loan_app, percent_title_loan_app, percent_title_loan_app" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrier_2_loan_app"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:barrierDirection="left"
+                        app:constraint_referenced_ids="max_amount_title_loan_app, percent_title_loan_app, percent_title_loan_app" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/condition_loan_app"
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/application"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/max_amount_title_loan_app"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/image_loan_app"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:src="@drawable/ic_baseline_credit_card_24"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintBottom_toTopOf="@+id/get_loan_btn_loan_app"
+                        app:layout_constraintEnd_toStartOf="@+id/max_amount_title_loan_app"
+                        app:layout_constraintHeight_max="150dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/condition_loan_app"
+                        app:layout_constraintWidth_max="100dp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/max_amount_title_loan_app"
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/max_amount_title"
+                        app:layout_constraintBottom_toTopOf="@+id/period_title_loan_app"
+                        app:layout_constraintEnd_toStartOf="@+id/barrier_loan_app"
+                        app:layout_constraintStart_toEndOf="@+id/barrier_2_loan_app"
+                        app:layout_constraintTop_toBottomOf="@+id/condition_loan_app"
+                        app:layout_constraintWidth_min="wrap" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/max_amount_loan_app"
+                        style="@style/textStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@+id/max_amount_title_loan_app"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/max_amount_title_loan_app"
+                        app:layout_constraintTop_toTopOf="@+id/max_amount_title_loan_app"
+                        app:layout_constraintWidth_min="wrap"
+                        tools:text="0" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/period_title_loan_app"
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/period_title"
+                        app:layout_constraintBottom_toTopOf="@+id/percent_title_loan_app"
+                        app:layout_constraintEnd_toStartOf="@+id/barrier_loan_app"
+                        app:layout_constraintStart_toEndOf="@+id/barrier_2_loan_app"
+                        app:layout_constraintTop_toBottomOf="@+id/max_amount_title_loan_app"
+                        app:layout_constraintWidth_min="wrap" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/period_loan_app"
+                        style="@style/textStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@+id/period_title_loan_app"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/barrier_loan_app"
+                        app:layout_constraintTop_toTopOf="@+id/period_title_loan_app"
+                        app:layout_constraintWidth_min="wrap"
+                        tools:text="60" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/percent_title_loan_app"
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/percent_title"
+                        app:layout_constraintBottom_toTopOf="@+id/get_loan_btn_loan_app"
+                        app:layout_constraintEnd_toStartOf="@+id/barrier_loan_app"
+                        app:layout_constraintStart_toEndOf="@+id/barrier_2_loan_app"
+                        app:layout_constraintTop_toBottomOf="@+id/period_title_loan_app"
+                        app:layout_constraintWidth_min="wrap" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/percent_loan_app"
+                        style="@style/textStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@+id/percent_title_loan_app"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/barrier_loan_app"
+                        app:layout_constraintTop_toTopOf="@+id/percent_title_loan_app"
+                        app:layout_constraintWidth_min="wrap"
+                        tools:text="22.2" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/get_loan_btn_loan_app"
+                        style="@style/buttonStyleWithBackground"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/get_a_loan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/percent_title_loan_app" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/amount_loan_app_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:hint="@string/amount"
+                app:layout_constraintBottom_toTopOf="@+id/firstName_loan_app_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_loan_app">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/amount_loan_app"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="9" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/firstName_loan_app_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:hint="@string/first_name"
+                app:layout_constraintBottom_toTopOf="@+id/lastName_loan_app_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/amount_loan_app_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/firstName_loan_app"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lastName_loan_app_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:hint="@string/last_name"
+                app:layout_constraintBottom_toTopOf="@+id/phone_loan_app_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/firstName_loan_app_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lastName_loan_app"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone_loan_app_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:hint="@string/phone_number"
+                app:layout_constraintBottom_toTopOf="@+id/create_loan_btn_auth"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lastName_loan_app_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_loan_app"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_loan_btn_auth"
+                style="@style/buttonStyleWithBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="@string/create_application"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phone_loan_app_layout" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_loan_app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="lastName_loan_app_layout,amount_loan_app_layout,create_loan_btn_auth,phone_loan_app_layout,firstName_loan_app_layout" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_loan_app"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bottom_navigation_background"
+        android:elevation="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

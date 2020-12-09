@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top_app_bar_layout_loan_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/top_app_bar_loan_info"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="15dp" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/image_loan_info"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_baseline_credit_card_24_orange"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintBottom_toBottomOf="@id/phoneNumber_title_loan_info"
+        app:layout_constraintEnd_toStartOf="@+id/amount_title_loan_info"
+        app:layout_constraintHeight_min="100dp"
+        app:layout_constraintWidth_max="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@+id/amount_title_loan_info"
+        app:layout_constraintWidth_min="100dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/amount_title_loan_info"
+        style="@style/titleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/amount_title"
+        app:layout_constraintBottom_toTopOf="@+id/period_title_loan_info"
+        app:layout_constraintEnd_toStartOf="@+id/amount_loan_info"
+        app:layout_constraintStart_toEndOf="@+id/image_loan_info"
+        app:layout_constraintTop_toBottomOf="@id/top_app_bar_layout_loan_info"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintWidth_min="wrap" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/period_title_loan_info"
+        style="@style/titleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/period_title"
+        app:layout_constraintBottom_toTopOf="@+id/percent_title_loan_info"
+        app:layout_constraintEnd_toStartOf="@+id/barrier_loan_info"
+        app:layout_constraintStart_toEndOf="@+id/image_loan_info"
+        app:layout_constraintTop_toBottomOf="@id/amount_title_loan_info"
+        app:layout_constraintWidth_min="wrap" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/percent_title_loan_info"
+        style="@style/titleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/percent_title"
+        app:layout_constraintBottom_toTopOf="@id/firstName_title_loan_info"
+        app:layout_constraintEnd_toStartOf="@+id/barrier_loan_info"
+        app:layout_constraintStart_toEndOf="@+id/image_loan_info"
+        app:layout_constraintTop_toBottomOf="@id/period_title_loan_info"
+        app:layout_constraintWidth_min="wrap" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstName_title_loan_info"
+        style="@style/titleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/first_name_title"
+        app:layout_constraintBottom_toTopOf="@id/lastName_title_loan_info"
+        app:layout_constraintEnd_toStartOf="@+id/barrier_loan_info"
+        app:layout_constraintStart_toEndOf="@+id/image_loan_info"
+        app:layout_constraintTop_toBottomOf="@id/percent_title_loan_info"
+        app:layout_constraintWidth_min="wrap" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lastName_title_loan_info"
+        style="@style/titleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/last_name_title"
+        app:layout_constraintBottom_toTopOf="@id/phoneNumber_title_loan_info"
+        app:layout_constraintEnd_toStartOf="@+id/barrier_loan_info"
+        app:layout_constraintStart_toEndOf="@+id/image_loan_info"
+        app:layout_constraintTop_toBottomOf="@id/firstName_title_loan_info"
+        app:layout_constraintWidth_min="wrap" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/phoneNumber_title_loan_info"
+        style="@style/titleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/phone_number_title"
+        app:layout_constraintBottom_toTopOf="@id/state_message_loan_info"
+        app:layout_constraintEnd_toStartOf="@+id/barrier_loan_info"
+        app:layout_constraintStart_toEndOf="@+id/image_loan_info"
+        app:layout_constraintTop_toBottomOf="@id/lastName_title_loan_info"
+        app:layout_constraintWidth_min="wrap" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/amount_loan_info"
+        style="@style/textStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/amount_title_loan_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/barrier_loan_info"
+        app:layout_constraintTop_toTopOf="@id/amount_title_loan_info"
+        app:layout_constraintWidth_min="wrap"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/period_loan_info"
+        style="@style/textStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/period_title_loan_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/amount_title_loan_info"
+        app:layout_constraintTop_toTopOf="@id/period_title_loan_info"
+        app:layout_constraintWidth_min="wrap"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/percent_loan_info"
+        style="@style/textStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/percent_title_loan_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/barrier_loan_info"
+        app:layout_constraintTop_toTopOf="@id/percent_title_loan_info"
+        app:layout_constraintWidth_min="wrap"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstName_loan_info"
+        style="@style/textStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/firstName_title_loan_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/barrier_loan_info"
+        app:layout_constraintTop_toTopOf="@id/firstName_title_loan_info"
+        app:layout_constraintWidth_min="wrap"
+        tools:text="first name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lastName_loan_info"
+        style="@style/textStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/lastName_title_loan_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/barrier_loan_info"
+        app:layout_constraintTop_toTopOf="@id/lastName_title_loan_info"
+        app:layout_constraintWidth_min="wrap"
+        tools:text="last name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/phoneNumber_loan_info"
+        style="@style/textStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneNumber_title_loan_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/barrier_loan_info"
+        app:layout_constraintTop_toTopOf="@id/phoneNumber_title_loan_info"
+        app:layout_constraintWidth_min="wrap"
+        tools:text="88002000600" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/state_message_loan_info"
+        style="@style/textStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phoneNumber_title_loan_info"
+        tools:text="Your application has been approved. Please refer to a loan office for get a loan" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_loan_info"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="amount_loan_info, period_loan_info, percent_loan_info, firstName_loan_info, lastName_loan_info, phoneNumber_loan_info" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

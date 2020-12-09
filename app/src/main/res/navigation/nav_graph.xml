@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_fragment">
+
+    <fragment
+        android:id="@+id/navigation_fragment"
+        android:name="com.starchee.lender.ui.NavigationFragment"
+        tools:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/action_auth"
+            app:popUpTo="@id/navigation_fragment"
+            app:popUpToInclusive="true"
+            app:destination="@+id/auth_fragment" />
+        <action
+            app:popUpTo="@id/navigation_fragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_loan_list"
+            app:destination="@+id/loan_list_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/auth_fragment"
+        android:name="com.starchee.lender.ui.AuthFragment"
+        tools:layout="@layout/auth_fragment">
+        <action
+            app:popUpTo="@id/auth_fragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_instruction"
+            app:destination="@+id/instruction_fragment" />
+        <action
+            app:popUpTo="@id/auth_fragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_loan_list"
+            app:destination="@+id/loan_list_fragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/instruction_fragment"
+        android:name="com.starchee.lender.ui.InstructionFragment"
+        tools:layout="@layout/instruction_fragment">
+        <action
+            app:popUpTo="@id/instruction_fragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_app"
+            app:destination="@+id/loan_app_fragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/loan_app_fragment"
+        android:name="com.starchee.lender.ui.LoanAppFragment"
+        tools:layout="@layout/loan_app_fragment">
+        <action
+            app:popUpTo="@id/loan_app_fragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_logout"
+            app:destination="@+id/auth_fragment" />
+        <action
+            android:id="@+id/action_success_app"
+            app:destination="@+id/success_loan_fragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/success_loan_fragment"
+        android:name="com.starchee.lender.ui.SuccessLoanFragment"
+        tools:layout="@layout/success_loan_fragment">
+        <action
+            android:id="@+id/action_loan_list"
+            app:destination="@+id/loan_list_fragment"
+            app:popUpTo="@id/success_loan_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loan_list_fragment"
+        android:name="com.starchee.lender.ui.LoanListFragment"
+        tools:layout="@layout/loan_list_fragment">
+        <action
+            app:popUpTo="@id/loan_list_fragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_logout"
+            app:destination="@+id/auth_fragment" />
+        <action
+            android:id="@+id/action_loan_info"
+            app:destination="@+id/loan_info_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loan_info_fragment"
+        android:name="com.starchee.lender.ui.LoanInfoFragment"
+        tools:layout="@layout/loan_info_fragment">
+        <argument
+            android:name="id"
+            app:argType="integer"
+            app:nullable="false"/>
+    </fragment>
+
+
+</navigation>

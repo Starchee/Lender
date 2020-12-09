@@ -1,0 +1,48 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+    </style>
+
+    <style name="inputTextLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxCornerRadiusTopEnd">15dp</item>
+        <item name="boxCornerRadiusTopStart">15dp</item>
+        <item name="elevation">15dp</item>
+    </style>
+
+    <style name="inputTextStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="buttonStyleWithBackground" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">15sp</item>
+        <item name="cornerRadius">17dp</item>
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="elevation">15dp</item>
+    </style>
+
+    <style name="buttonStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="cornerRadius">17dp</item>
+        <item name="elevation">15dp</item>
+    </style>
+
+    <style name="titleStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:padding">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+</resources>

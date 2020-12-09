@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="15dp"
+    android:layout_marginVertical="5dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/amount_title_loans_rv_item"
+            style="@style/titleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amount_title"
+            app:layout_constraintBottom_toTopOf="@+id/date_title_loans_rv_item"
+            app:layout_constraintEnd_toStartOf="@+id/amount_loans_rv_item"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/amount_loans_rv_item"
+            style="@style/textStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/amount_title_loans_rv_item"
+            app:layout_constraintEnd_toStartOf="@id/state_loans_rv_item"
+            app:layout_constraintStart_toEndOf="@id/amount_title_loans_rv_item"
+            app:layout_constraintTop_toTopOf="@id/amount_title_loans_rv_item"
+            tools:text="0" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/date_title_loans_rv_item"
+            style="@style/titleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/date_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/amount_title_loans_rv_item"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/amount_title_loans_rv_item" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/date_loans_rv_item"
+            style="@style/textStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/date_title_loans_rv_item"
+            app:layout_constraintEnd_toStartOf="@+id/state_loans_rv_item"
+            app:layout_constraintStart_toEndOf="@id/date_title_loans_rv_item"
+            app:layout_constraintTop_toBottomOf="@+id/amount_loans_rv_item"
+            tools:text="11 may 2011" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/state_loans_rv_item"
+            style="@style/textStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/amount_loans_rv_item"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="APPROVED" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

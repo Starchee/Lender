@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Кредитор</string>
+    <string name="mm_kay">понятненько</string>
+    <string name="instruction">Чтобы получить кредит на предложенных условиях, вам необходимо оформить заявку в личном кабинете. В списке займов вы можете проверить все свои заявки и их состояние. Удачи в этом удивительном приключении</string>
+    <string name="name">Имя</string>
+    <string name="password">Пароль</string>
+    <string name="login">Войти</string>
+    <string name="registration">Регистрация</string>
+    <string name="application">Предложение</string>
+    <string name="max_amount_title">Максимальная сумма:</string>
+    <string name="period_title">Период:</string>
+    <string name="percent_title">Процент:</string>
+    <string name="get_a_loan">Получить кредит</string>
+    <string name="amount">Сумма</string>
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="create_application">Создать заявку</string>
+    <string name="amount_title">Сумма:</string>
+    <string name="first_name_title">Имя:</string>
+    <string name="last_name_title">Фамилия:</string>
+    <string name="phone_number_title">Номер телефона</string>
+    <string name="date_title">Дата:</string>
+    <string name="success_text">Ваша заявка на кредит успешно выполнена.</string>
+    <string name="all_loans">Все кредиты</string>
+    <string name="none">не указано</string>
+    <string name="approved_message">Ваша заявка одобрена. Пожалуйста, обратитесь в кредитный офис для получения кредита</string>
+    <string name="registred_message">Ваша заявка в процессе. Пожалуйста, проверьте статус позже</string>
+    <string name="rejected_message">Ваша заявка была отклонена. Пожалуйста, попробуйте создать новую зявку</string>
+    <string name="rejected">ОТКЛОНЕН</string>
+    <string name="registred">ЗАРЕГИСТРИРОВАН</string>
+    <string name="approved">УТВЕРЖДЕНО</string>
+    <string name="warning_maxamount_message">Сумма должна быть ⩽ чем в предложении</string>
+    <string name="network_error_message">Пожалуйста, проверьте интернет соединение и попробуйте еще раз</string>
+    <string name="user_not_found_message">Неправильное имя пользователя или пароль</string>
+    <string name="user_bad_request_message">Пользователь уже существует</string>
+    <string name="app_not_found_message">Приложение не найдено</string>
+    <string name="list_not_found_message">Не найдено ни одного займа</string>
+    <string name="loan_not_found_message">Кредит не найден</string>
+    <string name="logout">выйти</string>
+    <string name="russia">Русский</string>
+    <string name="english">Английский</string>
+    <string name="language">Язык</string>
+</resources>
