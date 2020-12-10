@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
         localePicker()
     }
 
+    override fun attachBaseContext(newBase: Context) {
+        newBase.resources.configuration.setLocale(Locale.getDefault())
+        super.attachBaseContext(newBase)
+    }
+    
     private fun localePicker() {
         mainActivityViewModel?.getLocale(Locale.getDefault().toLanguageTag())
         mainActivityViewModel?.locale?.observe(this, {
@@ -37,8 +42,4 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    override fun attachBaseContext(newBase: Context) {
-        newBase.resources.configuration.setLocale(Locale.getDefault())
-        super.attachBaseContext(newBase)
-    }
 }
