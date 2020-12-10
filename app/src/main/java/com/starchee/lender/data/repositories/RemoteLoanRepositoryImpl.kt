@@ -24,7 +24,6 @@ class RemoteLoanRepositoryImpl @Inject constructor(
     override fun getLoanList(token: String): Single<List<Loan>> =
         remoteLoanDataSource.getLoanList(token).map { loans ->
             loans.map { it.mapToLoanInfo() }
-                .sortedByDescending { dateUtils.convertToLocalDate(it.date) }
         }
             .mapNetworkErrors()
 

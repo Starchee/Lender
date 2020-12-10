@@ -14,8 +14,7 @@ class LocalLoanRepositoryModule {
     @Singleton
     @Provides
     fun provideLocalLoanRepositoryModule(
-        localLoanDataSource: LocalLoanDataSource,
-        dateUtils: DateUtils
+        localLoanDataSource: LocalLoanDataSource
     ): LocalLoanRepository =
-        LocalLoanRepositoryImpl(localLoanDataSource, dateUtils)
+        LocalLoanRepositoryImpl(localLoanDataSource)
 }

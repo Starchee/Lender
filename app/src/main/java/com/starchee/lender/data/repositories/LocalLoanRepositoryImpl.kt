@@ -13,14 +13,13 @@ import io.reactivex.Single
 import javax.inject.Inject
 
 class LocalLoanRepositoryImpl @Inject constructor(
-    private val localLoanDataSource: LocalLoanDataSource,
-    private val dateUtils: DateUtils
+    private val localLoanDataSource: LocalLoanDataSource
 ) : LocalLoanRepository {
 
     override fun getLoanList(): Single<List<Loan>> =
         localLoanDataSource.getLoanList().map { loans ->
             loans.map { it.mapToLoanInfo() }
-                .sortedByDescending { dateUtils.convertToLocalDate(it.date) }
+                .sortedByDescending { it.id }
         }
 
     override fun getLoanById(id: Int): Single<Loan> =
