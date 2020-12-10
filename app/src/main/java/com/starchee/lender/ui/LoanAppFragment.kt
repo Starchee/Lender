@@ -85,7 +85,10 @@ class LoanAppFragment : BaseFragment() {
                 NetworkError.NETWORK -> showErrorToast(getString(R.string.network_error_message))
                 NetworkError.NOT_FOUND -> showErrorToast(getString(R.string.app_not_found_message))
                 NetworkError.BAD_REQUEST -> showErrorToast(getString(R.string.warning_maxamount_message))
-                NetworkError.FORBIDDEN -> showErrorToast(getString(R.string.forbidden_error_message))
+                NetworkError.FORBIDDEN -> {
+                    showErrorToast(getString(R.string.forbidden_error_message))
+                    findNavController(this).navigateUp()
+                }
             }
         })
     }

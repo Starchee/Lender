@@ -12,8 +12,8 @@ import androidx.navigation.ui.NavigationUI
 import com.starchee.lender.App
 import com.starchee.lender.R
 import com.starchee.lender.domain.entities.Loan
-import com.starchee.lender.domain.entities.NetworkError
 import com.starchee.lender.domain.entities.LoanState
+import com.starchee.lender.domain.entities.NetworkError
 import com.starchee.lender.ui.utils.ViewModelProviderFactory
 import com.starchee.lender.viewModels.LoanInfoViewModel
 import kotlinx.android.synthetic.main.loan_info_fragment.*
@@ -62,7 +62,10 @@ class LoanInfoFragment : BaseFragment() {
             when (error) {
                 NetworkError.NETWORK -> showErrorToast(getString(R.string.network_error_message))
                 NetworkError.NOT_FOUND -> showErrorToast(getString(R.string.loan_not_found_message))
-                NetworkError.FORBIDDEN -> showErrorToast(getString(R.string.forbidden_error_message))
+                NetworkError.FORBIDDEN -> {
+                    showErrorToast(getString(R.string.forbidden_error_message))
+                    NavHostFragment.findNavController(this).navigateUp()
+                }
                 else -> return@observe
             }
         })

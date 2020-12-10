@@ -2,7 +2,9 @@ package com.starchee.lender.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -59,7 +61,10 @@ class LoanListFragment : BaseFragment() {
         loanListViewModel?.networkErrors?.observe(this, { error ->
             when (error) {
                 NetworkError.NETWORK -> showErrorToast(getString(R.string.network_error_message))
-                NetworkError.FORBIDDEN -> showErrorToast(getString(R.string.forbidden_error_message))
+                NetworkError.FORBIDDEN -> {
+                    showErrorToast(getString(R.string.forbidden_error_message))
+                    findNavController(this).navigateUp()
+                }
                 else -> return@observe
             }
         })
