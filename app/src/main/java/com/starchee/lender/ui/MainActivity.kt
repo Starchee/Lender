@@ -24,7 +24,10 @@ class MainActivity : AppCompatActivity() {
             ViewModelProvider(this, viewModelProviderFactory).get(MainActivityViewModel::class.java)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        localePicker()
+    }
 
+    private fun localePicker() {
         mainActivityViewModel?.getLocale(Locale.getDefault().toLanguageTag())
         mainActivityViewModel?.locale?.observe(this, {
             if (it != Locale.getDefault().toLanguageTag()) {

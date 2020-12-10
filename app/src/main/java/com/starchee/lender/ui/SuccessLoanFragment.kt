@@ -19,7 +19,7 @@ class SuccessLoanFragment : BaseFragment() {
     override fun onStart() {
         super.onStart()
         ok_btn_success_loan.setOnClickListener {
-            findNavController(this).navigate(R.id.action_loan_list)
+            findNavController(this).navigateUp()
         }
     }
 }

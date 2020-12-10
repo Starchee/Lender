@@ -49,7 +49,7 @@ class AuthFragment : BaseFragment() {
         authViewModel?.isLogin?.observe(this, { state ->
             when (state) {
                 AuthState.REGISTERED -> findNavController(this).navigate(R.id.action_instruction)
-                AuthState.LOGIN -> findNavController(this).navigate(R.id.action_loan_list)
+                AuthState.LOGIN -> findNavController(this).navigateUp()
             }
         })
 
