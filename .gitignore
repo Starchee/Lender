@@ -12,3 +12,5 @@
 /captures
 .externalNativeBuild
 .cxx
+/hs_err_pid212.log
+/replay_pid212.log

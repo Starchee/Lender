@@ -11,14 +11,17 @@
         tools:layout="@layout/main_fragment">
         <action
             android:id="@+id/action_auth"
+            app:destination="@+id/auth_fragment"
             app:popUpTo="@id/navigation_fragment"
-            app:popUpToInclusive="true"
-            app:destination="@+id/auth_fragment" />
+            app:popUpToInclusive="true" />
         <action
-            app:popUpTo="@id/navigation_fragment"
-            app:popUpToInclusive="true"
             android:id="@+id/action_loan_list"
-            app:destination="@+id/loan_list_fragment" />
+            app:destination="@+id/loan_list_fragment"
+            app:popUpTo="@id/navigation_fragment"
+            app:popUpToInclusive="true" />
+        <deepLink
+            android:id="@+id/starter_dl"
+            app:uri="http://focusapp.com/" />
     </fragment>
 
     <fragment
@@ -26,15 +29,15 @@
         android:name="com.starchee.lender.ui.AuthFragment"
         tools:layout="@layout/auth_fragment">
         <action
-            app:popUpTo="@id/auth_fragment"
-            app:popUpToInclusive="true"
             android:id="@+id/action_instruction"
-            app:destination="@+id/instruction_fragment" />
-        <action
+            app:destination="@+id/instruction_fragment"
             app:popUpTo="@id/auth_fragment"
-            app:popUpToInclusive="true"
+            app:popUpToInclusive="true" />
+        <action
             android:id="@+id/action_loan_list"
-            app:destination="@+id/loan_list_fragment" />
+            app:destination="@+id/loan_list_fragment"
+            app:popUpTo="@id/auth_fragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 
@@ -43,10 +46,10 @@
         android:name="com.starchee.lender.ui.InstructionFragment"
         tools:layout="@layout/instruction_fragment">
         <action
-            app:popUpTo="@id/instruction_fragment"
-            app:popUpToInclusive="true"
             android:id="@+id/action_app"
-            app:destination="@+id/loan_app_fragment" />
+            app:destination="@+id/loan_app_fragment"
+            app:popUpTo="@id/instruction_fragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 
@@ -55,13 +58,16 @@
         android:name="com.starchee.lender.ui.LoanAppFragment"
         tools:layout="@layout/loan_app_fragment">
         <action
-            app:popUpTo="@id/loan_app_fragment"
-            app:popUpToInclusive="true"
             android:id="@+id/action_logout"
-            app:destination="@+id/auth_fragment" />
+            app:destination="@+id/auth_fragment"
+            app:popUpTo="@id/loan_app_fragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_success_app"
             app:destination="@+id/success_loan_fragment" />
+        <deepLink
+            android:id="@+id/application_dl"
+            app:uri="http://focusapp.com/loans" />
     </fragment>
 
 
@@ -81,13 +87,16 @@
         android:name="com.starchee.lender.ui.LoanListFragment"
         tools:layout="@layout/loan_list_fragment">
         <action
-            app:popUpTo="@id/loan_list_fragment"
-            app:popUpToInclusive="true"
             android:id="@+id/action_logout"
-            app:destination="@+id/auth_fragment" />
+            app:destination="@+id/auth_fragment"
+            app:popUpTo="@id/loan_list_fragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_loan_info"
             app:destination="@+id/loan_info_fragment" />
+        <deepLink
+            android:id="@+id/all_loans_dl"
+            app:uri="http://focusapp.com/loans/all" />
     </fragment>
 
     <fragment
@@ -97,7 +106,10 @@
         <argument
             android:name="id"
             app:argType="integer"
-            app:nullable="false"/>
+            app:nullable="false" />
+        <deepLink
+            android:id="@+id/loans_by_di_dl"
+            app:uri="http://focusapp.com/loans/{id}" />
     </fragment>
 
 
