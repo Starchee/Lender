@@ -97,6 +97,24 @@ class RemoteLoanRepositoryImplTest {
     }
 
     @Test
+    fun `on getLoanCondition EXPECTED ForbiddenException`() {
+        val remoteLoanRepository =
+            RemoteLoanRepositoryImpl(remoteLoanDataSource, dateUtils)
+        val exception = HttpException(
+            Response.error<Any>(
+                403,
+                "Forbidden".toResponseBody("text/plain".toMediaTypeOrNull())
+            )
+        )
+        val expected = ForbiddenException::class.java
+
+        Mockito.`when`(remoteLoanDataSource.getLoanCondition(token))
+            .thenReturn(Single.error(exception))
+
+        remoteLoanRepository.getLoanCondition(token).test().assertError(expected)
+    }
+
+    @Test
     fun `on getLoanList EXPECT List of Loan`() {
         val remoteLoanRepository =
             RemoteLoanRepositoryImpl(remoteLoanDataSource, dateUtils)
@@ -232,6 +250,24 @@ class RemoteLoanRepositoryImplTest {
             )
         )
         val expected = NotFoundException::class.java
+
+        Mockito.`when`(remoteLoanDataSource.getLoanList(token))
+            .thenReturn(Single.error(exception))
+
+        remoteLoanRepository.getLoanList(token).test().assertError(expected)
+    }
+
+    @Test
+    fun `on getLoanList EXPECTED ForbiddenException`() {
+        val remoteLoanRepository =
+            RemoteLoanRepositoryImpl(remoteLoanDataSource, dateUtils)
+        val exception = HttpException(
+            Response.error<Any>(
+                403,
+                "Forbidden".toResponseBody("text/plain".toMediaTypeOrNull())
+            )
+        )
+        val expected = ForbiddenException::class.java
 
         Mockito.`when`(remoteLoanDataSource.getLoanList(token))
             .thenReturn(Single.error(exception))
@@ -436,6 +472,44 @@ class RemoteLoanRepositoryImplTest {
     }
 
     @Test
+    fun `on makeLoanApplication EXPECTED ForbiddenException`() {
+        val remoteLoanRepository =
+            RemoteLoanRepositoryImpl(remoteLoanDataSource, dateUtils)
+        val loanApplicationModel = LoanApplicationModel(
+            amount = 20000,
+            firstName = "Vasya",
+            lastName = "Pupkin",
+            percent = 14.5,
+            period = 20,
+            phone = "88002000600"
+        )
+        val loanApplication = LoanApplication(
+            amount = 20000,
+            firstName = "Vasya",
+            lastName = "Pupkin",
+            phone = "88002000600"
+        )
+        val loanCondition = LoanCondition(
+            maxAmount = 20000,
+            percent = 14.5,
+            period = 20,
+        )
+        val exception = HttpException(
+            Response.error<Any>(
+                403,
+                "Forbidden".toResponseBody("text/plain".toMediaTypeOrNull())
+            )
+        )
+        val expected = ForbiddenException::class.java
+
+        Mockito.`when`(remoteLoanDataSource.makeLoanApplication(token, loanApplicationModel))
+            .thenReturn(Single.error(exception))
+
+        remoteLoanRepository.makeLoanApplication(token, loanApplication, loanCondition).test()
+            .assertError(expected)
+    }
+
+    @Test
     fun `on getLoanById EXPECT Loan`() {
         val remoteLoanRepository =
             RemoteLoanRepositoryImpl(remoteLoanDataSource, dateUtils)
@@ -527,6 +601,25 @@ class RemoteLoanRepositoryImplTest {
             )
         )
         val expected = NotFoundException::class.java
+
+        Mockito.`when`(remoteLoanDataSource.getLoanById(token, id))
+            .thenReturn(Single.error(exception))
+
+        remoteLoanRepository.getLoanById(token, id).test().assertError(expected)
+    }
+
+    @Test
+    fun `on getLoanById EXPECTED ForbiddenException`() {
+        val remoteLoanRepository =
+            RemoteLoanRepositoryImpl(remoteLoanDataSource, dateUtils)
+        val id = 100
+        val exception = HttpException(
+            Response.error<Any>(
+                403,
+                "Forbidden".toResponseBody("text/plain".toMediaTypeOrNull())
+            )
+        )
+        val expected = ForbiddenException::class.java
 
         Mockito.`when`(remoteLoanDataSource.getLoanById(token, id))
             .thenReturn(Single.error(exception))

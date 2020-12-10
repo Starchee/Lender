@@ -62,6 +62,7 @@ class LoanInfoFragment : BaseFragment() {
             when (error) {
                 NetworkError.NETWORK -> showErrorToast(getString(R.string.network_error_message))
                 NetworkError.NOT_FOUND -> showErrorToast(getString(R.string.loan_not_found_message))
+                NetworkError.FORBIDDEN -> showErrorToast(getString(R.string.forbidden_error_message))
                 else -> return@observe
             }
         })

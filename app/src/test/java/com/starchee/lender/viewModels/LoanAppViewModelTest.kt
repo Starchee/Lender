@@ -211,6 +211,37 @@ class LoanAppViewModelTest {
     }
 
     @Test
+    fun `on makeLoanApplication EXPECT on error FORBIDDEN`() {
+        val loanAppViewModel =
+            LoanAppViewModel(createLoanAppUseCase, getLoanConditionUseCase, saveLocaleUseCase)
+        val observer: Observer<NetworkError> = mock()
+        loanAppViewModel.networkErrors.observeForever(observer)
+        val token = "token"
+        val exception = ForbiddenException()
+        val expected = NetworkError.FORBIDDEN
+
+        Mockito.`when`(localRepository.getToken()).thenReturn(token)
+        Mockito.`when`(remoteLoanRepository.getLoanCondition(token))
+            .thenReturn(Single.just(loanCondition))
+        loanAppViewModel.loadOffer()
+
+        Mockito.`when`(localRepository.getToken()).thenReturn(token)
+        Mockito.`when`(
+            remoteLoanRepository.makeLoanApplication(
+                token,
+                loanApplication,
+                loanCondition
+            )
+        )
+            .thenReturn(Single.error(exception))
+
+        loanAppViewModel.makeLoanApplication(loanApplication)
+
+        assertEquals(expected, loanAppViewModel.networkErrors.value)
+    }
+
+
+    @Test
     fun `on validate max EXPECT null`() {
         val loanAppViewModel =
             LoanAppViewModel(createLoanAppUseCase, getLoanConditionUseCase, saveLocaleUseCase)
@@ -351,6 +382,25 @@ class LoanAppViewModelTest {
         val token = "token"
         val exception = NotFoundException()
         val expected = NetworkError.NOT_FOUND
+
+        Mockito.`when`(localRepository.getToken()).thenReturn(token)
+        Mockito.`when`(remoteLoanRepository.getLoanCondition(token))
+            .thenReturn(Single.error(exception))
+
+        loanAppViewModel.loadOffer()
+
+        assertEquals(expected, loanAppViewModel.networkErrors.value)
+    }
+
+    @Test
+    fun `on loanOffer EXPECT on error FORBIDDEN`() {
+        val loanAppViewModel =
+            LoanAppViewModel(createLoanAppUseCase, getLoanConditionUseCase, saveLocaleUseCase)
+        val observer: Observer<NetworkError> = mock()
+        loanAppViewModel.networkErrors.observeForever(observer)
+        val token = "token"
+        val exception = ForbiddenException()
+        val expected = NetworkError.FORBIDDEN
 
         Mockito.`when`(localRepository.getToken()).thenReturn(token)
         Mockito.`when`(remoteLoanRepository.getLoanCondition(token))

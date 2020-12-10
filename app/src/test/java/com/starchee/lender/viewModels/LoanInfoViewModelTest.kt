@@ -117,6 +117,25 @@ class LoanInfoViewModelTest {
     }
 
     @Test
+    fun `on getLoanById EXPECT on error FORBIDDEN`() {
+        val loanInfoViewModel = LoanInfoViewModel(getRemoteLoanUseCase, getLocalLoanUseCase)
+        val observer: Observer<NetworkError> = mock()
+        loanInfoViewModel.networkErrors.observeForever(observer)
+        val token = "token"
+        val exception = ForbiddenException()
+        val expected = NetworkError.FORBIDDEN
+
+        Mockito.`when`(localRepository.getToken()).thenReturn(token)
+        Mockito.`when`(remoteLoanRepository.getLoanById(token, loan.id))
+            .thenReturn(Single.error(exception))
+        Mockito.`when`(localLoanRepository.getLoanById(loan.id)).thenReturn(Single.just(loan))
+
+        loanInfoViewModel.getLoanById(loan.id)
+
+        assertEquals(expected, loanInfoViewModel.networkErrors.value)
+    }
+
+    @Test
     fun `on getLoanById EXPECT on error get local loan`() {
         val loanInfoViewModel = LoanInfoViewModel(getRemoteLoanUseCase, getLocalLoanUseCase)
         val observer: Observer<Loan> = mock()

@@ -38,8 +38,10 @@
     <string name="app_not_found_message">Приложение не найдено</string>
     <string name="list_not_found_message">Не найдено ни одного займа</string>
     <string name="loan_not_found_message">Кредит не найден</string>
+    <string name="forbidden_error_message">Для просмотра этой страницы вам необходимо авторизоваться</string>
     <string name="logout">выйти</string>
     <string name="russia">Русский</string>
     <string name="english">Английский</string>
     <string name="language">Язык</string>
+
 </resources>

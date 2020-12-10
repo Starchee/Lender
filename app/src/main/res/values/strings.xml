@@ -37,8 +37,10 @@
     <string name="app_not_found_message">Application not found</string>
     <string name="list_not_found_message">Not one loans found</string>
     <string name="loan_not_found_message">Loan not found</string>
+    <string name="forbidden_error_message">To view this page you need to login</string>
     <string name="logout">logout</string>
     <string name="russia">Russia</string>
     <string name="english">English</string>
     <string name="language">Language</string>
+
 </resources>

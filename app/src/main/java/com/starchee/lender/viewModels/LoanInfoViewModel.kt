@@ -44,7 +44,7 @@ class LoanInfoViewModel @Inject constructor(
             .subscribe({
                 _loanInfo.value = it
             }, {
-                //Error
+                Log.e(TAG, it.toString())
             })
         compositeDisposable.add(result)
     }
@@ -54,6 +54,7 @@ class LoanInfoViewModel @Inject constructor(
             is NoNetWorkException -> _networkErrors.value = NetworkError.NETWORK
             is BadRequestException -> _networkErrors.value = NetworkError.BAD_REQUEST
             is NotFoundException -> _networkErrors.value = NetworkError.NOT_FOUND
+            is ForbiddenException -> _networkErrors.value = NetworkError.FORBIDDEN
             else -> Log.e(TAG, exception.toString())
         }
     }

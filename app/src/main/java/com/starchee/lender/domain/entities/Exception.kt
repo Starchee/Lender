@@ -5,8 +5,10 @@ import java.lang.RuntimeException
 
 open class NetworkException: RuntimeException()
 
-class NoNetWorkException(): NetworkException()
+class NoNetWorkException: NetworkException()
 
-class BadRequestException(): NetworkException()
+class BadRequestException: NetworkException()
 
-class NotFoundException(): NetworkException()
+class NotFoundException: NetworkException()
+
+class ForbiddenException: NetworkException()

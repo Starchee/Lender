@@ -4,8 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
-import androidx.core.view.get
-import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -61,6 +59,7 @@ class LoanListFragment : BaseFragment() {
         loanListViewModel?.networkErrors?.observe(this, { error ->
             when (error) {
                 NetworkError.NETWORK -> showErrorToast(getString(R.string.network_error_message))
+                NetworkError.FORBIDDEN -> showErrorToast(getString(R.string.forbidden_error_message))
                 else -> return@observe
             }
         })

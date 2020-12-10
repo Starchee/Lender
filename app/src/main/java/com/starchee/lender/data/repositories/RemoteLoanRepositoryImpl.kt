@@ -81,6 +81,7 @@ class RemoteLoanRepositoryImpl @Inject constructor(
     private fun <T> mapHttpError(error: HttpException): Single<T> =
         when (error.code()) {
             400 -> Single.error(BadRequestException())
+            403 -> Single.error(ForbiddenException())
             404 -> Single.error(NotFoundException())
             else -> Single.error(error)
         }
